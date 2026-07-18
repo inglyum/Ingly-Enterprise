@@ -11,6 +11,7 @@ dist
 !extensions/resend
 !extensions/sendgrid
 !extensions/product_review
+!extensions/ingly
 /themes
 .idea/*
 .evershop
@@ -18,7 +19,8 @@ dist
 npm-debug.log
 /package-log.json
 /media
-/public
+/public/*
+!/public/assets
 .DS_Store
 .log
 coverage
@@ -29,12 +31,12 @@ test-results
 playwright-report
 playwright/.cache
 /blob-report
-/config
+/config/*
+!/config/default.json
 /packages/evershop/config
 .prettierignore
 .prettierrc
 mysqlToPostgres.js
-extensions
 /specifications
 /wiki
 /design-kit

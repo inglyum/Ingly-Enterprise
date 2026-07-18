@@ -1,0 +1,36 @@
+{
+  "shop": {
+    "language": "it",
+    "timezone": "Europe/Rome",
+    "currency": "EUR",
+    "weightUnit": "kg",
+    "homeUrl": "http://localhost:3000"
+  },
+  "system": {
+    "file_storage": "local",
+    "admin_collection_size": 20,
+    "extensions": [
+      {
+        "name": "ingly",
+        "resolve": "extensions/ingly",
+        "enabled": true,
+        "priority": 10
+      }
+    ]
+  },
+  "themeConfig": {
+    "logo": {
+      "alt": "Ingly Design",
+      "src": "/assets/ingly-logo.svg",
+      "width": 200,
+      "height": 50
+    },
+    "headTags": {
+      "metas": [
+        { "name": "viewport", "content": "width=device-width, initial-scale=1" },
+        { "name": "theme-color", "content": "#0F172A" }
+      ]
+    },
+    "copyRight": "© 2026 Ingly Design — INGLY Enterprise. Tutti i diritti riservati."
+  }
+}

@@ -1,0 +1,13 @@
+{
+  "name": "@ingly/enterprise-extension",
+  "version": "1.0.0",
+  "description": "INGLY Enterprise — personalizzazione admin e storefront di Ingly Design su EverShop",
+  "main": "dist/bootstrap.js",
+  "type": "module",
+  "scripts": {
+    "tsc": "tsc"
+  },
+  "author": "Ingly Design",
+  "license": "UNLICENSED",
+  "private": true
+}
