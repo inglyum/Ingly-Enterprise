@@ -9,5 +9,8 @@
   },
   "author": "Ingly Design",
   "license": "UNLICENSED",
-  "private": true
+  "private": true,
+  "dependencies": {
+    "nodemailer": "^6.9.14"
+  }
 }

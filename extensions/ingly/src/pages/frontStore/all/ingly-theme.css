@@ -1,0 +1,61 @@
+/*
+ * INGLY Design — tema storefront.
+ * Sovrascrive le variabili del design system (shadcn/Tailwind v4) con i colori
+ * del brand, così l'intero sito (pulsanti, link, focus, badge) è coerente.
+ * Caricato in area "head" dopo il CSS del core (vedi InglyTheme.tsx).
+ *
+ * Palette brand: navy #14182B · blu #2E6FD1 · giallo #F2C21A · crema #F5F1EC
+ */
+:root {
+  /* Azione principale = blu Ingly */
+  --primary: #2e6fd1;
+  --primary-foreground: #ffffff;
+
+  /* Focus ring */
+  --ring: #2e6fd1;
+
+  /* Accent (hover/menu) = tinta blu chiara */
+  --accent: #eef3fc;
+  --accent-foreground: #14182b;
+
+  /* Angoli leggermente più morbidi */
+  --radius: 0.55rem;
+}
+
+/* Link testuali del contenuto: blu Ingly, sottolineatura al hover */
+.ingly-hero a,
+.prose a,
+main a.text-link,
+a.ingly-link {
+  color: #2e6fd1;
+}
+
+/* Titoli di sezione storefront in navy brand */
+main h1,
+main h2,
+main h3 {
+  color: #14182b;
+}
+
+/* Bottone primario: micro-lucidatura del brand */
+button.ingly-btn-primary,
+.ingly-btn-primary {
+  background: #2e6fd1;
+  color: #fff;
+  font-weight: 700;
+  border-radius: var(--radius);
+  transition: background 0.15s ease;
+}
+button.ingly-btn-primary:hover,
+.ingly-btn-primary:hover {
+  background: #245ab0;
+}
+.ingly-btn-accent {
+  background: #f2c21a;
+  color: #14182b;
+  font-weight: 700;
+  border-radius: var(--radius);
+}
+.ingly-btn-accent:hover {
+  background: #dcae10;
+}

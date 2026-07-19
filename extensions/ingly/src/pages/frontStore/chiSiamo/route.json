@@ -1,0 +1,6 @@
+{
+  "methods": ["GET"],
+  "path": "/chi-siamo",
+  "name": "Chi siamo",
+  "access": "public"
+}

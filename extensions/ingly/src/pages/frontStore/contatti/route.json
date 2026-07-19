@@ -1,0 +1,6 @@
+{
+  "methods": ["GET"],
+  "path": "/contatti",
+  "name": "Contatti",
+  "access": "public"
+}

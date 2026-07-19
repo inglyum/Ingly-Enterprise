@@ -103,6 +103,18 @@ I file sono nella cartella `extensions/ingly/src/pages/` (si aggiornano da soli 
 ### Spegnere la personalizzazione Ingly
 In `config/default.json`, nell'extension `ingly`, metti `"enabled": false` e riavvia.
 
+### Pagine Chi siamo / Contatti e form preventivo
+- Il sito ha già le pagine **`/chi-siamo`** e **`/contatti`** (con il **form richiesta preventivo**), raggiungibili dalla barra di navigazione.
+- Ogni richiesta inviata dal form viene **sempre salvata nel database** (tabella `ingly_quote_request`) — non si perde nulla.
+
+### Ricevere le richieste via EMAIL (facoltativo)
+Per farti arrivare le richieste anche nella tua casella:
+1. Apri il file **`.env`** nella cartella del progetto (con Blocco note).
+2. Togli il `#` davanti alle righe `SMTP_...` e `INGLY_QUOTE_TO` e metti i tuoi dati.
+   - Con **Gmail**: attiva la verifica in 2 passaggi e crea una **"password per le app"** (Google Account → Sicurezza), poi usala in `SMTP_PASS`.
+3. Salva il `.env`, chiudi e riapri **`AVVIO-2-avvia.bat`**.
+Dettagli e esempio pronto sono dentro **`.env.ingly.example`**.
+
 ---
 
 ## Note
