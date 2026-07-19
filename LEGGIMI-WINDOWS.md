@@ -1,68 +1,81 @@
 # 🚀 Avviare INGLY Enterprise su Windows — guida facile
 
-Non serve essere esperti. Segui questi passaggi **in ordine**, una volta sola.
+Non serve essere esperti. Segui i passaggi **in ordine**. Questa procedura è stata
+**verificata funzionante** end-to-end.
 
 ---
 
-## Prima cosa: installa 2 programmi (solo la prima volta)
+## 🟦 PRIMA VOLTA: installa 2 programmi (solo una volta)
 
-### 1) Node.js
-- Vai su **https://nodejs.org**
-- Scarica il pulsante grande a sinistra (**LTS**).
-- Apri il file scaricato e clicca **Avanti → Avanti → Installa → Fine**.
+### 1) Node.js — il "motore"
+- Vai su **https://nodejs.org** → scarica il pulsante grande **LTS**.
+- Apri il file → **Avanti → Avanti → Installa → Fine**.
 
-### 2) Docker Desktop (serve per il database)
-- Vai su **https://www.docker.com/products/docker-desktop**
-- Scarica **Docker Desktop for Windows** e installalo (**Avanti → Fine**).
-- **Aprilo** dal menu Start e lascialo aperto (l'icona della balena 🐳 in basso a destra deve essere accesa).
+### 2) Docker Desktop — per il database
+- Vai su **https://www.docker.com/products/docker-desktop** → scarica **Docker Desktop for Windows** → installa.
+- **Aprilo** dal menu Start e lascialo aperto: in basso a destra deve esserci la **balena 🐳 accesa**.
 
-> Se Docker ti dà problemi, scrivimi: ti do un metodo alternativo senza Docker.
+> Se Docker ti dà problemi, scrivimi "**Docker non va**": ti do un metodo alternativo.
 
 ---
 
-## Poi: scarica il progetto (solo la prima volta)
+## 🟩 PRIMA VOLTA: scarica il progetto
 
-Se non hai già la cartella del progetto sul PC:
-1. Vai alla pagina GitHub del progetto.
-2. Pulsante verde **`< > Code`** → **Download ZIP**.
-3. **Estrai** lo ZIP (tasto destro → *Estrai tutto*). Otterrai una cartella `Ingly-Enterprise`.
-
----
-
-## Infine: avvia (3 doppi-click)
-
-Apri la cartella `Ingly-Enterprise` e fai **doppio clic**, in questo ordine:
-
-1. **`AVVIO-1-installa.bat`** → installa e prepara tutto. Aspetta il messaggio "FATTO".
-2. **`AVVIO-2-crea-admin.bat`** → crea il tuo accesso. Ti chiede **email** e **password** (la password non si vede mentre la scrivi: è normale).
-3. **`AVVIO-3-avvia.bat`** → accende il negozio. **Lascia questa finestra aperta.**
-
-> Se Windows mostra un avviso blu "Windows ha protetto il PC": clicca **Ulteriori informazioni → Esegui comunque**. Gli script sono i file `.bat` di questo progetto.
+Se non hai già la cartella `Ingly-Enterprise` sul PC:
+1. Apri la pagina GitHub del progetto → pulsante verde **`< > Code`** → **Download ZIP**.
+2. Tasto destro sullo ZIP → **Estrai tutto** → ottieni la cartella `Ingly-Enterprise`.
 
 ---
 
-## Apri nel browser
+## 🟨 AVVIO — la prima volta (4 doppi-click, in ordine)
 
-Con la finestra del passo 3 aperta, vai su:
+Apri la cartella `Ingly-Enterprise` e fai **doppio clic**:
 
-- 🛍️ **Negozio:** http://localhost:3000
-- 🔐 **Pannello admin:** http://localhost:3000/admin  (entra con l'email e la password del passo 2)
+| Ordine | File | Cosa fa |
+|--------|------|---------|
+| **1️⃣** | `AVVIO-1-installa.bat` | Installa e prepara tutto. Aspetta la scritta **"FATTO"** (qualche minuto). |
+| **2️⃣** | `AVVIO-2-avvia.bat` | Accende il negozio. La **prima volta** prepara il database da solo. **Lascia questa finestra nera aperta.** Aspetta: *"Your website is running at http://localhost:3000"*. |
+| **3️⃣** | `AVVIO-3-crea-admin.bat` | (Solo la prima volta) Crea il tuo accesso: ti chiede **email** e **password**. |
+| **4️⃣** | Apri il browser | Vai su `http://localhost:3000/admin` ed entra con email e password del passo 3. |
+
+> Se compare l'avviso blu **"Windows ha protetto il PC"** → **Ulteriori informazioni → Esegui comunque**.
 
 ---
 
-## Le volte successive
+## 🌐 Gli indirizzi
 
-Non devi rifare tutto. Basta:
+Con la finestra nera del passo 2 aperta:
+
+- 🛍️ **Negozio Ingly:** http://localhost:3000
+- 🔐 **Pannello admin:** http://localhost:3000/admin
+
+Vedrai la barra **INGLY Enterprise** nell'admin e l'announcement bar Ingly nel negozio.
+
+---
+
+## 🔁 Le volte successive (uso quotidiano)
+
+Non rifai tutto. Solo **2 doppi-click**:
 1. Apri **Docker Desktop** (aspetta la balena accesa).
-2. Doppio clic su **`AVVIO-3-avvia.bat`**.
+2. Doppio clic su **`AVVIO-2-avvia.bat`**.
 
-Per **fermare** il negozio: chiudi la finestra nera del passo 3.
+Poi apri http://localhost:3000. Per **fermare**: chiudi la finestra nera.
+(Non serve rifare `AVVIO-1` né `AVVIO-3`: il tuo accesso resta salvato.)
 
 ---
 
-## Se qualcosa non va
+## ❓ Se qualcosa non va
 
-Fai uno screenshot della finestra nera con l'errore e mandamelo. Errori tipici:
-- *"Node.js non installato"* → rifai il programma 1 qui sopra.
-- *"Docker non installato"* / errori database → apri Docker Desktop e aspetta la balena accesa, poi riprova.
-- La pagina non si apre → assicurati che la finestra del passo 3 sia ancora aperta.
+Fai uno **screenshot della finestra nera** con l'errore e mandamelo. Casi tipici:
+- *"Node.js non installato"* → rifai il programma 1.
+- Errori database / *"Docker..."* → apri Docker Desktop, aspetta la balena accesa, riprova.
+- La pagina non si apre → assicurati che la finestra del passo 2 sia aperta e abbia scritto *"running at http://localhost:3000"*.
+
+---
+
+## Note
+
+- La lingua è impostata su **italiano** e la valuta su **EUR** per lo storefront; alcune etichette
+  del pannello admin restano in inglese (traduzione completa = attività separata).
+- Per cambiare **logo**: sostituisci `public/assets/ingly-logo.svg`.
+- Per **spegnere** la personalizzazione: in `config/default.json` metti `"enabled": false` nell'extension `ingly`.

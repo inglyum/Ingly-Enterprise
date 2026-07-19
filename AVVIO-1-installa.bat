@@ -9,55 +9,48 @@ echo.
 echo Questo passo puo' richiedere alcuni minuti. Non chiudere la finestra.
 echo.
 
-echo Verifico che Node.js sia installato...
+echo Verifico Node.js...
 where node >nul 2>nul
 if errorlevel 1 (
-  echo.
-  echo *** Node.js NON risulta installato. ***
-  echo Installa Node.js ^(versione LTS^) da: https://nodejs.org
-  echo Poi riprova questo file.
-  echo.
-  pause
-  exit /b 1
+  echo *** Node.js NON installato. Scaricalo da https://nodejs.org ^(pulsante LTS^) e riprova. ***
+  pause & exit /b 1
 )
 
-echo Verifico che Docker sia installato...
+echo Verifico Docker...
 where docker >nul 2>nul
 if errorlevel 1 (
-  echo.
-  echo *** Docker NON risulta installato. ***
-  echo Installa "Docker Desktop" da: https://www.docker.com/products/docker-desktop
-  echo Aprilo almeno una volta ^(deve restare in esecuzione^), poi riprova questo file.
-  echo.
-  pause
-  exit /b 1
+  echo *** Docker NON installato. Installa "Docker Desktop" da https://www.docker.com/products/docker-desktop ***
+  echo Aprilo ^(icona balena accesa^) e riprova.
+  pause & exit /b 1
 )
 
 echo.
-echo [1 di 5] Installazione dei componenti ^(npm install^)...
+echo [1 di 5] Installazione componenti ^(npm install^)...
+set CYPRESS_INSTALL_BINARY=0
 call npm install || goto :errore
 
 echo.
-echo [2 di 5] Compilazione del programma ^(npm run compile^)...
+echo [2 di 5] Compilazione programma ^(compile^)...
 call npm run compile || goto :errore
 
 echo.
-echo [3 di 5] Avvio del database PostgreSQL con Docker...
+echo [3 di 5] Compilazione modulo database ^(compile:db^)...
+call npm run compile:db || goto :errore
+
+echo.
+echo [4 di 5] Avvio database PostgreSQL con Docker...
 docker compose up -d database || goto :errore
 echo Attendo 15 secondi che il database sia pronto...
 timeout /t 15 /nobreak >nul
 
 echo.
-echo [4 di 5] Preparazione del file di configurazione ^(.env^)...
+echo [5 di 5] Preparazione file di configurazione ^(.env^)...
 if not exist ".env" copy ".env.ingly.example" ".env" >nul
 
 echo.
-echo [5 di 5] Creazione delle tabelle nel database ^(npm run setup^)...
-call npm run setup || goto :errore
-
-echo.
 echo ============================================================
-echo    FATTO! Ora fai doppio clic su:  AVVIO-2-crea-admin.bat
+echo    FATTO! Ora fai doppio clic su:  AVVIO-2-avvia.bat
+echo    ^(la PRIMA volta lascialo aperto e poi apri AVVIO-3-crea-admin.bat^)
 echo ============================================================
 echo.
 pause
@@ -65,11 +58,7 @@ exit /b 0
 
 :errore
 echo.
-echo *** Si e' verificato un errore. Leggi il messaggio qui sopra. ***
-echo Suggerimenti:
-echo  - Controlla che Docker Desktop sia APERTO e in esecuzione.
-echo  - Controlla la connessione a internet.
-echo  - Riprova a eseguire di nuovo questo file.
-echo.
+echo *** Errore. Leggi il messaggio qui sopra. ***
+echo Suggerimenti: Docker Desktop aperto? Connessione internet attiva? Riprova questo file.
 pause
 exit /b 1
