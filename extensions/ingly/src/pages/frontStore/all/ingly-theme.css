@@ -72,3 +72,13 @@ button.ingly-btn-primary:hover,
 .ingly-btn-accent:hover {
   background: #dcae10;
 }
+
+/* Card categoria: hover elegante */
+.ingly-cat-card {
+  transition: border-color 0.15s ease, box-shadow 0.15s ease, transform 0.15s ease;
+}
+.ingly-cat-card:hover {
+  border-color: #2e6fd1;
+  box-shadow: 0 8px 22px rgba(20, 24, 43, 0.08);
+  transform: translateY(-2px);
+}
