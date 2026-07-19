@@ -9,14 +9,17 @@ import React from 'react';
 export default function InglyTopBar() {
   return (
     <div
-      className="w-full text-center text-white text-sm"
+      className="w-full text-center text-sm"
       style={{
-        background: 'linear-gradient(90deg, #0F172A 0%, #B45309 100%)',
+        background: 'linear-gradient(90deg, #14182B 0%, #2E6FD1 100%)',
+        color: '#FFFFFF',
         padding: '8px 12px'
       }}
     >
-      <span className="font-medium">Ingly Design</span>
-      <span className="opacity-90">
+      <span className="font-semibold" style={{ color: '#F2C21A' }}>
+        Ingly Design
+      </span>
+      <span className="opacity-95">
         {' '}
         — Personalizzazioni laser su misura · Spedizione in tutta Italia · Preventivi rapidi
       </span>

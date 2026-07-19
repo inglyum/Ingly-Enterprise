@@ -11,7 +11,7 @@ export default function InglyAdminBar() {
   return (
     <div
       style={{
-        background: 'linear-gradient(90deg, #0F172A 0%, #1E293B 55%, #B45309 100%)'
+        background: 'linear-gradient(90deg, #14182B 0%, #1E2547 55%, #2E6FD1 100%)'
       }}
       className="text-white"
     >
@@ -22,8 +22,8 @@ export default function InglyAdminBar() {
             style={{
               width: 28,
               height: 28,
-              background: '#F59E0B',
-              color: '#0F172A'
+              background: '#F2C21A',
+              color: '#14182B'
             }}
           >
             I

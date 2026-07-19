@@ -36,7 +36,8 @@ Apri la cartella `Ingly-Enterprise` e fai **doppio clic**:
 | **1️⃣** | `AVVIO-1-installa.bat` | Installa e prepara tutto. Aspetta la scritta **"FATTO"** (qualche minuto). |
 | **2️⃣** | `AVVIO-2-avvia.bat` | Accende il negozio. La **prima volta** prepara il database da solo. **Lascia questa finestra nera aperta.** Aspetta: *"Your website is running at http://localhost:3000"*. |
 | **3️⃣** | `AVVIO-3-crea-admin.bat` | (Solo la prima volta) Crea il tuo accesso: ti chiede **email** e **password**. |
-| **4️⃣** | Apri il browser | Vai su `http://localhost:3000/admin` ed entra con email e password del passo 3. |
+| **4️⃣** | `AVVIO-4-prodotti-demo.bat` | (Facoltativo, la prima volta) Carica **categorie e prodotti demo** e imposta nome/valuta/lingua. Usa la stessa email/password del passo 3. |
+| **5️⃣** | Apri il browser | Vai su `http://localhost:3000/admin` ed entra con email e password del passo 3. |
 
 > Se compare l'avviso blu **"Windows ha protetto il PC"** → **Ulteriori informazioni → Esegui comunque**.
 
@@ -73,9 +74,40 @@ Fai uno **screenshot della finestra nera** con l'errore e mandamelo. Casi tipici
 
 ---
 
+## 🎨 Come personalizzare / modificare
+
+### Mettere il TUO logo (nel negozio in alto)
+Il logo dell'intestazione si carica dal pannello, in 4 clic:
+1. Entra in `http://localhost:3000/admin`
+2. Menu **SETTING** (in basso a sinistra) → **Store**
+3. Sezione **Branding/Logo** → **carica** il tuo file logo (PNG o JPG)
+4. **Salva**. Ricarica il negozio: il tuo logo appare in alto.
+
+### Aggiungere le FOTO ai prodotti
+1. Admin → **Products** → clic sul prodotto
+2. Sezione **Images** → **carica** le foto → **Save**
+
+### Aggiungere/modificare prodotti e categorie
+- Admin → **Products** → **New Product** (nome, prezzo, categoria, foto…)
+- Admin → **Categories** → per creare/modificare le categorie.
+
+### Cambiare nome negozio, valuta, lingua
+- Admin → **SETTING → Store** (nome, valuta, lingua).
+
+### Cambiare i colori/testi della personalizzazione Ingly
+I file sono nella cartella `extensions/ingly/src/pages/` (si aggiornano da soli mentre il negozio gira):
+- Barra viola/blu del negozio → `frontStore/all/InglyTopBar.tsx`
+- Barra e pannello dell'admin → `admin/all/InglyAdminBar.tsx`, `admin/dashboard/InglyDashboard.tsx`
+- Colori del brand usati: navy `#14182B`, blu `#2E6FD1`, giallo `#F2C21A`.
+
+### Spegnere la personalizzazione Ingly
+In `config/default.json`, nell'extension `ingly`, metti `"enabled": false` e riavvia.
+
+---
+
 ## Note
 
-- La lingua è impostata su **italiano** e la valuta su **EUR** per lo storefront; alcune etichette
-  del pannello admin restano in inglese (traduzione completa = attività separata).
-- Per cambiare **logo**: sostituisci `public/assets/ingly-logo.svg`.
-- Per **spegnere** la personalizzazione: in `config/default.json` metti `"enabled": false` nell'extension `ingly`.
+- La lingua è **italiano** e la valuta **EUR**; alcune etichette dell'admin restano in inglese
+  (traduzione completa = attività separata).
+- I prodotti demo appaiono nelle **pagine categoria** (es. *Home → Eventi → Matrimonio*) e nella
+  ricerca; la **homepage** resta semplice finché non aggiungi contenuti/vetrine dall'admin.

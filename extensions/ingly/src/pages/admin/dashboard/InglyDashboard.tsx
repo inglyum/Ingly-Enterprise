@@ -36,7 +36,7 @@ export default function InglyDashboard() {
       <div
         className="rounded-xl p-6 text-white"
         style={{
-          background: 'linear-gradient(120deg, #0F172A 0%, #1E293B 60%, #B45309 100%)'
+          background: 'linear-gradient(120deg, #14182B 0%, #1E2547 55%, #2E6FD1 100%)'
         }}
       >
         <h2 className="text-2xl font-bold mb-1">Benvenuto in INGLY Enterprise</h2>
