@@ -149,3 +149,41 @@ svg[viewBox='0 0 251 276'] {
   transform: translateY(-3px);
   box-shadow: 0 12px 26px rgba(20, 24, 43, 0.14);
 }
+
+/* ── Grafica di brand derivata dal logo ─────────────────────────── */
+
+/* Texture leggerissima (ticks/punti/linee laser) su tutto lo storefront */
+body {
+  background-color: #ffffff;
+  background-image: url('/assets/ingly-bg-pattern.svg');
+  background-repeat: repeat;
+}
+
+/* Emblema in filigrana nell'hero (angolo destro) */
+.ingly-hero::after {
+  content: '';
+  position: absolute;
+  right: -40px;
+  top: -30px;
+  width: 320px;
+  height: 320px;
+  background: url('/assets/ingly-mark.svg') center / contain no-repeat;
+  opacity: 0.08;
+  pointer-events: none;
+}
+
+/* Footer con tono brand + texture */
+.footer,
+footer {
+  background-color: #f6f7f9;
+  background-image: url('/assets/ingly-bg-pattern.svg');
+  background-repeat: repeat;
+  border-top: 3px solid #14182b;
+}
+
+/* Sidebar filtri (pagine categoria): tocco brand */
+.product__filter,
+.catalog__filter,
+aside .filter {
+  border-radius: 12px;
+}

@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="140" height="140" viewBox="0 0 140 140">
+  <!-- Pattern di brand Ingly (tileable): ticks del righello, punti "circuito",
+       linee laser sottili. Colore navy a bassissima opacità: texture leggera. -->
+  <g stroke="#14182B" stroke-width="1" opacity="0.05">
+    <!-- linee laser diagonali -->
+    <line x1="-10" y1="150" x2="150" y2="-10"/>
+    <line x1="30" y1="150" x2="150" y2="30"/>
+    <!-- ticks righello -->
+    <line x1="18" y1="20" x2="18" y2="30"/>
+    <line x1="26" y1="20" x2="26" y2="27"/>
+    <line x1="34" y1="20" x2="34" y2="30"/>
+    <line x1="42" y1="20" x2="42" y2="27"/>
+    <line x1="50" y1="20" x2="50" y2="30"/>
+    <line x1="90" y1="100" x2="90" y2="110"/>
+    <line x1="98" y1="100" x2="98" y2="107"/>
+    <line x1="106" y1="100" x2="106" y2="110"/>
+    <line x1="114" y1="100" x2="114" y2="107"/>
+  </g>
+  <g fill="#2E6FD1" opacity="0.06">
+    <circle cx="112" cy="26" r="2.4"/>
+    <circle cx="26" cy="104" r="2.4"/>
+    <circle cx="70" cy="70" r="2"/>
+  </g>
+  <g fill="#F2C21A" opacity="0.07">
+    <circle cx="120" cy="118" r="2.2"/>
+    <circle cx="22" cy="30" r="2"/>
+  </g>
+</svg>
