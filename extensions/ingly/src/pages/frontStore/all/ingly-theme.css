@@ -7,6 +7,45 @@
  * Palette brand: navy #14182B · blu #2E6FD1 · giallo #F2C21A · crema #F5F1EC
  */
 :root {
+  /* ── INGLY DESIGN SYSTEM · design tokens ─────────────────────────
+     Colori del brand (dal logo): navy, blu, oro, + neutri e semantici.
+     Documentati in docs/DESIGN_SYSTEM_INGLY.md. */
+
+  /* Navy (brand scuro) */
+  --ingly-navy-900: #0d1020;
+  --ingly-navy-800: #14182b;
+  --ingly-navy-700: #1e2547;
+  --ingly-navy-600: #2a3566;
+
+  /* Blu (primario / laser) */
+  --ingly-blue-700: #1f4f9e;
+  --ingly-blue-600: #245ab0;
+  --ingly-blue-500: #2e6fd1;
+  --ingly-blue-100: #eef3fc;
+
+  /* Oro (accento) */
+  --ingly-gold-600: #dcae10;
+  --ingly-gold-500: #f2c21a;
+  --ingly-gold-100: #fdf3d3;
+
+  /* Neutri (grigi caldi) */
+  --ingly-neutral-900: #14182b;
+  --ingly-neutral-700: #3a4152;
+  --ingly-neutral-500: #5b6172;
+  --ingly-neutral-300: #b7becc;
+  --ingly-neutral-200: #e6e8ee;
+  --ingly-neutral-100: #f3f5f9;
+  --ingly-cream: #f5f1ec;
+
+  /* Semantici */
+  --ingly-success: #1b7a3d;
+  --ingly-warning: #8a6d1b;
+  --ingly-error: #b42318;
+  --ingly-info: #2e6fd1;
+
+  /* Gradienti brand */
+  --ingly-gradient: linear-gradient(115deg, #14182b 0%, #1e2547 55%, #2e6fd1 100%);
+
   /* Azione principale = blu Ingly */
   --primary: #2e6fd1;
   --primary-foreground: #ffffff;

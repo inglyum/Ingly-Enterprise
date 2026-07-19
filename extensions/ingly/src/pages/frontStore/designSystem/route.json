@@ -1,0 +1,6 @@
+{
+  "methods": ["GET"],
+  "path": "/design-system",
+  "name": "Design System",
+  "access": "public"
+}
