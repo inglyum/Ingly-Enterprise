@@ -101,8 +101,9 @@ async function createProduct(p) {
   };
   const { status, json } = await api('/api/products', body);
   if (status >= 200 && status < 300) {
+    const d = json?.data || json;
     console.log(`  ✔ Prodotto: ${p.name} — €${p.price} (id ${prodId(json)})`);
-    return prodId(json);
+    return { id: prodId(json), uuid: d?.uuid, name: p.name };
   }
   console.log(`  … Prodotto "${p.name}" saltato (HTTP ${status}) ${JSON.stringify(json).slice(0, 160)}`);
   return null;
@@ -146,6 +147,7 @@ async function main() {
   c.accessori = await createCategory({ name: 'Accessori', url_key: 'accessori', parent_id: anno });
   c.ufficio = await createCategory({ name: 'Ufficio & Business', url_key: 'ufficio-business', parent_id: anno });
 
+  const featured = [];
   console.log('\n== Prodotti demo ==');
   const products = [
     { name: 'Bomboniera in legno personalizzata', sku: 'ING-BOM-001', price: '4.50', url_key: 'bomboniera-legno-personalizzata', short: 'Bomboniera in legno incisa a laser, personalizzabile con nomi e data.', category_id: c.bomboniere },
@@ -163,7 +165,45 @@ async function main() {
     { name: 'Regalo personalizzato inciso', sku: 'ING-REG-001', price: '15.00', url_key: 'regalo-personalizzato-inciso', short: 'Idea regalo unica, incisa a laser su misura.', category_id: c.regali },
     { name: 'Portachiavi aziendale con logo (set 50)', sku: 'ING-AZI-001', price: '120.00', url_key: 'portachiavi-aziendale-logo-set-50', short: 'Gadget aziendali personalizzati con il logo, set da 50.', category_id: c.aziendali }
   ];
-  for (const p of products) await createProduct(p);
+  for (const p of products) {
+    const created = await createProduct(p);
+    if (created?.uuid) featured.push(created);
+  }
+
+  // Collezione "In Evidenza" + widget homepage "Prodotti in evidenza".
+  console.log('\n== Prodotti in evidenza (homepage) ==');
+  const coll = await api('/api/collections', {
+    name: 'In Evidenza',
+    code: 'in-evidenza',
+    description: []
+  });
+  const collUuid = coll.json?.data?.uuid;
+  if (collUuid) {
+    console.log(`  ✔ Collezione "In Evidenza" (code in-evidenza)`);
+    for (const f of featured.slice(0, 6)) {
+      const a = await api(`/api/collections/${collUuid}/products`, { product_id: f.uuid });
+      if (a.status < 300) console.log(`    ✔ in evidenza: ${f.name}`);
+    }
+    const w = await api('/api/widgets', {
+      type: 'collection_products',
+      name: 'Prodotti in evidenza',
+      status: 1,
+      settings: {
+        collection: 'in-evidenza',
+        count: 6,
+        countPerRow: 3,
+        heading: 'Prodotti in evidenza',
+        subText: 'Le nostre personalizzazioni più richieste'
+      },
+      route: ['homepage'],
+      area: ['content']
+    });
+    console.log(w.status < 300
+      ? '  ✔ Widget homepage "Prodotti in evidenza" creato'
+      : `  … Widget non creato (HTTP ${w.status}) — puoi crearlo dal pannello (CMS → Widgets)`);
+  } else {
+    console.log(`  … Collezione non creata (HTTP ${coll.status}) — creala dal pannello (Catalog → Collections)`);
+  }
 
   console.log('\n✔ Seed completato. Apri http://localhost:3000 e il pannello admin → Catalog.');
 }
