@@ -195,8 +195,9 @@ async function main() {
         heading: 'Prodotti in evidenza',
         subText: 'Le nostre personalizzazioni più richieste'
       },
-      route: ['homepage'],
-      area: ['content']
+      // Posizione in homepage: dopo la vetrina categorie (sortOrder 15),
+      // prima della fascia valori/CTA (sortOrder 40).
+      placements: [{ route: 'homepage', area: 'content', sort_order: 25 }]
     });
     console.log(w.status < 300
       ? '  ✔ Widget homepage "Prodotti in evidenza" creato'
