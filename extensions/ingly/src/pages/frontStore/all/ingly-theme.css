@@ -82,3 +82,70 @@ button.ingly-btn-primary:hover,
   box-shadow: 0 8px 22px rgba(20, 24, 43, 0.08);
   transform: translateY(-2px);
 }
+
+/* Sostituisce il segnaposto prodotto EverShop (esagono) col marchio Ingly */
+svg[viewBox='0 0 251 276'] > path {
+  display: none;
+}
+svg[viewBox='0 0 251 276'] {
+  background: url('/assets/ingly-mark.svg') center / 58% no-repeat;
+}
+
+/* Hero: zoom lento (ken burns) sullo sfondo + raggio laser animato */
+.ingly-hero__bg {
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center;
+  transform: scale(1.04);
+  animation: inglyKenBurns 22s ease-in-out infinite alternate;
+  will-change: transform;
+}
+@keyframes inglyKenBurns {
+  from {
+    transform: scale(1.04);
+  }
+  to {
+    transform: scale(1.14);
+  }
+}
+.ingly-laser-dot {
+  animation: inglyPulse 2.4s ease-in-out infinite;
+  transform-origin: center;
+}
+@keyframes inglyPulse {
+  0%,
+  100% {
+    opacity: 0.5;
+    r: 4;
+  }
+  50% {
+    opacity: 1;
+    r: 7;
+  }
+}
+.ingly-laser-line {
+  stroke-dasharray: 6 8;
+  animation: inglyDash 1.4s linear infinite;
+}
+@keyframes inglyDash {
+  to {
+    stroke-dashoffset: -28;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .ingly-hero__bg,
+  .ingly-laser-dot,
+  .ingly-laser-line {
+    animation: none;
+  }
+}
+
+/* Galleria: zoom morbido al hover */
+.ingly-gallery-tile {
+  transition: box-shadow 0.18s ease, transform 0.18s ease;
+}
+.ingly-gallery-tile:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 26px rgba(20, 24, 43, 0.14);
+}

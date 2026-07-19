@@ -1,10 +1,10 @@
 import React from 'react';
 
 /**
- * Hero della homepage — INGLY Design (design "wow").
- * Sfondo brand (navy → blu) con motivo laser SVG e — se presente — la foto
- * `public/assets/ingly-hero.jpg` come layer di sfondo (tinta brand sopra, così
- * resta leggibile con o senza foto).
+ * Hero della homepage — INGLY Design (design "wow", animato).
+ * - Layer di sfondo animato (zoom lento "ken burns"): usa la foto
+ *   `public/assets/ingly-hero.jpg` se presente, con tinta brand sopra.
+ * - Motivo laser SVG con raggio e punto luminoso animati.
  * Font display: Space Grotesk (via tema). Area "content", in cima.
  */
 export default function InglyHero() {
@@ -16,19 +16,24 @@ export default function InglyHero() {
         overflow: 'hidden',
         borderRadius: 20,
         margin: '10px 0 40px',
-        backgroundColor: '#14182B',
-        backgroundImage:
-          'linear-gradient(115deg, rgba(20,24,43,0.94) 0%, rgba(20,24,43,0.86) 42%, rgba(46,111,209,0.80) 100%), url("/assets/ingly-hero.jpg")',
-        backgroundSize: 'cover',
-        backgroundPosition: 'center'
+        backgroundColor: '#14182B'
       }}
     >
-      {/* motivo laser: linee di precisione */}
+      {/* sfondo animato (foto opzionale + tinta brand) */}
+      <div
+        className="ingly-hero__bg"
+        style={{
+          backgroundImage:
+            'linear-gradient(115deg, rgba(20,24,43,0.94) 0%, rgba(20,24,43,0.86) 42%, rgba(46,111,209,0.80) 100%), url("/assets/ingly-hero.jpg")'
+        }}
+      />
+
+      {/* motivo laser animato */}
       <svg
         aria-hidden="true"
         viewBox="0 0 600 400"
         preserveAspectRatio="none"
-        style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', opacity: 0.18 }}
+        style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', opacity: 0.22 }}
       >
         <defs>
           <linearGradient id="ig" x1="0" y1="0" x2="1" y2="1">
@@ -48,6 +53,9 @@ export default function InglyHero() {
           />
         ))}
         <circle cx="470" cy="120" r="60" fill="none" stroke="#F2C21A" strokeWidth="1.4" opacity="0.6" />
+        {/* raggio laser + punto luminoso animati */}
+        <line className="ingly-laser-line" x1="470" y1="0" x2="470" y2="120" stroke="#F2C21A" strokeWidth="2" />
+        <circle className="ingly-laser-dot" cx="470" cy="120" r="5" fill="#F2C21A" />
       </svg>
 
       <div
@@ -130,7 +138,6 @@ export default function InglyHero() {
           </a>
         </div>
 
-        {/* stat / trust row */}
         <div
           style={{
             display: 'flex',

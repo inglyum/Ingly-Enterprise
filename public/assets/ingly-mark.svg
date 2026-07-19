@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" role="img" aria-label="Ingly Design">
+  <g fill="none" stroke="#C4CAD6" stroke-width="3">
+    <circle cx="60" cy="60" r="52"/>
+  </g>
+  <g stroke="#C4CAD6" stroke-width="2.4">
+    <line x1="34" y1="78" x2="86" y2="42"/>
+    <line x1="40" y1="78" x2="40" y2="70"/>
+    <line x1="50" y1="71" x2="50" y2="63"/>
+    <line x1="60" y1="64" x2="60" y2="56"/>
+    <line x1="70" y1="57" x2="70" y2="49"/>
+    <line x1="80" y1="50" x2="80" y2="42"/>
+  </g>
+  <path d="M66 30 L84 48 L72 52 L60 40 Z" fill="#C4CAD6"/>
+  <text x="60" y="100" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="20" font-weight="800" letter-spacing="1.5" fill="#C4CAD6">INGLY</text>
+</svg>
