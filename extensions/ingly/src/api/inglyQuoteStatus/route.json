@@ -1,0 +1,5 @@
+{
+  "methods": ["POST"],
+  "path": "/ingly/quotes/status",
+  "access": "private"
+}

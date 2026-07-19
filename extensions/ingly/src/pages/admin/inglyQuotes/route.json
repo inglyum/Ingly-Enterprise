@@ -1,0 +1,6 @@
+{
+  "methods": ["GET"],
+  "path": "/quote-requests",
+  "name": "Richieste preventivo",
+  "access": "private"
+}

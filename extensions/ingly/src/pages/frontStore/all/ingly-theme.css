@@ -19,7 +19,20 @@
   --accent-foreground: #14182b;
 
   /* Angoli leggermente più morbidi */
-  --radius: 0.55rem;
+  --radius: 0.6rem;
+
+  /* Font del brand: Inter per il testo */
+  --font-sans: 'Inter', ui-sans-serif, system-ui, -apple-system, 'Segoe UI',
+    Roboto, Helvetica, Arial, sans-serif;
+}
+
+/* Titoli/display con Space Grotesk (carattere del brand) */
+main h1,
+main h2,
+main h3,
+.ingly-display {
+  font-family: 'Space Grotesk', 'Inter', ui-sans-serif, system-ui, sans-serif;
+  letter-spacing: -0.01em;
 }
 
 /* Link testuali del contenuto: blu Ingly, sottolineatura al hover */
